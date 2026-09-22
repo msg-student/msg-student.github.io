@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mya Gonzales | Finance & Accounting Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        slate: {
+                            850: '#151f32',
+                            950: '#080d1a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        
+        [contenteditable="true"] {
+            outline: 2px dashed #0284c7;
+            border-radius: 4px;
+            padding: 2px 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen transition-colors duration-300">
+
+    <header class="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 glass transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#hero" class="font-bold text-lg tracking-tight hover:text-brand-600 dark:hover:text-brand-500 transition-colors flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-600 dark:bg-brand-500 inline-block"></span>
+                <span>MYA GONZALES</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Projects & Models</a>
+                <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Experience</a>
+                <a href="#education" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Education</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <!-- Inline Edit Mode Toggle -->
+                <button id="edit-mode-toggle" title="Toggle Live Text Editing" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1.5 text-xs font-semibold">
+                    <i data-lucide="edit-3" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline" id="edit-mode-text">Edit Mode: Off</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" title="Toggle Dark/Light Mode" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <i data-lucide="moon" id="theme-icon-moon" class="w-4 h-4 hidden"></i>
+                    <i data-lucide="sun" id="theme-icon-sun" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Mobile menu toggle -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-2 text-sm">
+            <a href="#about" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-500">About</a>
+            <a href="#skills" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-500">Skills</a>
+            <a href="#projects" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-500">Projects & Models</a>
+            <a href="#experience" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-500">Experience</a>
+            <a href="#education" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-500">Education</a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 space-y-16">
+
+        <section id="hero" class="pt-6 sm:pt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Headshot & Visual Badge -->
+                <div class="lg:col-span-4 flex flex-col items-center sm:items-start">
+                    <div class="relative group">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
+                        <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-white dark:border-slate-800 shadow-xl flex items-center justify-center">
+                            <!-- Image Fallback Avatar -->
+                            <img id="headshot-img" src="Mya Gonzales Headshot.png" alt="Mya Gonzales Professional Headshot" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';" />
+                            <div id="avatar-fallback" class="hidden flex-col items-center justify-center w-full h-full bg-slate-800 text-white font-bold text-3xl">
+                                <span>MG</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="editable">Seeking Finance & Accounting Roles</span>
+                    </div>
+                </div>
+
+                <!-- Personal Info & One-Sentence Statement -->
+                <div class="lg:col-span-8 space-y-5 text-center sm:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-600 dark:bg-brand-950/60 dark:text-brand-400 border border-brand-200 dark:border-brand-800">
+                        <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                        <span class="editable">Rutgers Business School | BS '28, MAcc '30</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                        <span class="editable">Mya Gonzales</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed border-l-0 sm:border-l-4 border-brand-500 sm:pl-4 italic" id="about">
+                        "<span class="editable">Accounting candidate with a passion for data-driven financial modeling, operational leadership, budget forecasting, and strict audit readiness.</span>"
+                    </p>
+
+                    <!-- Contact Bar Buttons -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                        <a href="mailto:msg257@scarletmail.rutgers.edu" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-sm font-semibold shadow-sm transition-all">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            <span>Email Me</span>
+                        </a>
+
+                        <button onclick="copyContact('msg257@scarletmail.rutgers.edu', 'Email address copied!')" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium transition-all">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Copy Email</span>
+                        </button>
+
+                        <a href="https://linkedin.com/in/mya-gonzales-04a433328/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium transition-all">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-sky-600"></i>
+                            <span>LinkedIn</span>
+                        </a>
+
+                        <button onclick="copyContact('(732) 979-1186', 'Phone number copied!')" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium transition-all">
+                            <i data-lucide="phone" class="w-4 h-4 text-emerald-600"></i>
+                            <span>(732) 979-1186</span>
+                        </button>
+                    </div>
+
+                    <!-- Quick Metadata Pills -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> <span class="editable">Somerset / New Brunswick, NJ</span></span>
+                        <span class="flex items-center gap-1"><i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> <span class="editable">GPA: 3.8 / Dean's List</span></span>
+                        <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> <span class="editable">150 Credits Path (May 2030)</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-12">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Core Competencies & Skills</h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Technical toolset, analytical methodologies, and management capabilities.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Financial Modeling & Analytics Card -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-4">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 dark:text-white mb-2 editable">Financial & Accounting</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Budgeting & Forecasting</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Sensitivity Analysis</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Bookkeeping</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Auditing</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Software & Technical Stack -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4">
+                        <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 dark:text-white mb-2 editable">Software & Systems</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Advanced MS Excel</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Microsoft Power AI</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">MS PowerPoint & Word</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">HTML & JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Leadership & Operations -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-semibold text-slate-900 dark:text-white mb-2 editable">Operations & Leadership</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Team Management (6 Directs)</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Executive Reporting</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Insurance & Claims Data</span>
+                        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fundraising Events</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience" class="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-12">
+            <div>
+                <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Leadership & Professional Experience</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Detailed track record of impact and responsibilities.</p>
+            </div>
+
+            <div class="space-y-6">
+                
+                <!-- Experience Item 1: Solar Car -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm relative overflow-hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white editable">Finance Team Lead</h3>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 dark:bg-brand-950 dark:text-brand-300 border border-brand-200 dark:border-brand-800">Leadership</span>
+                            </div>
+                            <div class="text-sm font-medium text-brand-600 dark:text-brand-400 editable">Rutgers University Solar Car</div>
+                        </div>
+                        <div class="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg w-fit">
+                            <span class="editable">New Brunswick, NJ</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                        <li class="editable"><strong>Led and managed a 6-person finance team</strong> across bookkeeping, financial planning, forecasting, and event fundraising for a high-budget engineering club.</li>
+                        <li class="editable"><strong>Engineered and implemented an automated Excel financial tracking system</strong>, consolidating revenues, expenses, income statements, and balance sheets to enhance real-time financial visibility.</li>
+                        <li class="editable"><strong>Developed multi-scenario financial forecasts</strong> by executing sensitivity analyses (best/worst case spending outcomes) on cost estimates gathered across technical division leads.</li>
+                        <li class="editable"><strong>Delivered strategic budget reports and presentations</strong> to executive board leadership during weekly admin meetings, guiding club-wide resource allocation decisions.</li>
+                        <li class="editable"><strong>Oversaw day-to-day bookkeeping operations</strong>, maintaining strict audit readiness, transaction accuracy, and on-time financial reporting for all projects and events.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 2: Operations Manager -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm relative overflow-hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white editable">Operations Manager (Part-Time)</h3>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">Operations</span>
+                            </div>
+                            <div class="text-sm font-medium text-emerald-600 dark:text-emerald-400 editable">Acupuncture Center</div>
+                        </div>
+                        <div class="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg w-fit">
+                            <span class="editable">Basking Ridge, NJ | June 2023 - Present</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                        <li class="editable">Tracks and monitors all financial and insurance-related data, ensuring meticulous documentation and zero error tolerance.</li>
+                        <li class="editable">Responsible for daily front-office operations and patient intake workflows.</li>
+                        <li class="editable">Coordinates communications seamlessly between customers, insurance representatives, and practitioners.</li>
+                        <li class="editable">Collaborates on a team of three per shift to coordinate patient health, satisfaction, and schedule confirmation.</li>
+                    </ul>
+                </div>
+        
+        </section>
+
+        <section id="education" class="space-y-6 border-t border-slate-200 dark:border-slate-800/80 pt-12">
+            <div>
+                <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Education & Academic Credentials</h2>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white editable">Rutgers Business School</h3>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 italic editable">Rutgers, The State University of New Jersey — New Brunswick, NJ</div>
+                    </div>
+                    <div class="text-right sm:text-left md:text-right">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                            GPA: 3.8 / Dean's List
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-800">
+                        <div class="text-xs text-slate-400 font-semibold uppercase">Undergraduate Program</div>
+                        <div class="text-base font-bold text-slate-900 dark:text-white mt-1 editable">Bachelor of Science in Accounting</div>
+                        <div class="text-xs text-brand-600 dark:text-brand-400 mt-1 font-medium editable">Expected Graduation: May 2028</div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-800">
+                        <div class="text-xs text-slate-400 font-semibold uppercase">Graduate Track (150 Credits Path)</div>
+                        <div class="text-base font-bold text-slate-900 dark:text-white mt-1 editable">Masters of Accountancy in Governmental Accounting</div>
+                        <div class="text-xs text-brand-600 dark:text-brand-400 mt-1 font-medium editable">Expected Completion: May 2030</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div>
+                © <span id="year">2026</span> Mya Gonzales. All rights reserved.
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="mailto:msg257@scarletmail.rutgers.edu" class="hover:text-slate-900 dark:hover:text-white">msg257@scarletmail.rutgers.edu</a>
+                <a href="https://linkedin.com/in/mya-gonzales-04a433328/" target="_blank" class="hover:text-slate-900 dark:hover:text-white">LinkedIn Profile</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-xs font-semibold border border-slate-800">
+        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+        <span id="toast-message">Action successful!</span>
+    </div>
+
+    <!-- Modals for Project Deep Dives -->
+    <!-- Modal 1 -->
+    <div id="project1-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Automated Excel Tracking System</h3>
+                <button onclick="closeModal('project1-modal')" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>This financial tracking tool was engineered to handle high transaction volumes across multiple engineering sub-teams.</p>
+                <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
+                    <li>Dynamic cell references linking receipts directly to income statements.</li>
+                    <li>Automated balance sheet recalculation ensuring total debits equal total credits.</li>
+                    <li>Audit trail logging time-stamps for every expense submission.</li>
+                </ul>
+            </div>
+            <div class="pt-2 flex justify-end">
+                <button onclick="closeModal('project1-modal')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold">Close Preview</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="project2-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Sensitivity Analysis Methodology</h3>
+                <button onclick="closeModal('project2-modal')" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>By conducting sensitivity analysis on division leads' spending estimations, the finance team established critical safeguards against unexpected price fluctuations in raw components.</p>
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-lg text-xs space-y-1 font-mono">
+                    <div>• Best Case: Cost savings via vendor sponsorships (-15%)</div>
+                    <div>• Base Case: Standard projections with modest contingencies</div>
+                    <div>• Worst Case: Inflation spike + emergency replacement parts (+25%)</div>
+                </div>
+            </div>
+            <div class="pt-2 flex justify-end">
+                <button onclick="closeModal('project2-modal')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold">Close Preview</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="project3-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Operations & Billing System Detail</h3>
+                <button onclick="closeModal('project3-modal')" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>Implemented standardized data intake procedures at Acupuncture Center, eliminating errors in insurance processing and improving schedule synchronization between practitioners and patients.</p>
+            </div>
+            <div class="pt-2 flex justify-end">
+                <button onclick="closeModal('project3-modal')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold">Close Preview</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const iconSun = document.getElementById('theme-icon-sun');
+        const iconMoon = document.getElementById('theme-icon-moon');
+
+        // Default dark mode for modern sleek aesthetic
+        if (localStorage.getItem('color-theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+            iconSun.classList.add('hidden');
+            iconMoon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.add('dark');
+            iconSun.classList.remove('hidden');
+            iconMoon.classList.add('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            }
+        });
+
+        // Toast Notification System
+        function copyContact(text, msg) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast(msg);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Live Text Edit Mode Switcher
+        let isEditMode = false;
+        const editBtn = document.getElementById('edit-mode-toggle');
+        const editText = document.getElementById('edit-mode-text');
+
+        editBtn.addEventListener('click', () => {
+            isEditMode = !isEditMode;
+            const editables = document.querySelectorAll('.editable');
+            
+            editables.forEach(el => {
+                el.contentEditable = isEditMode ? "true" : "false";
+            });
+
+            if (isEditMode) {
+                editText.textContent = "Edit Mode: ON";
+                editBtn.classList.add('bg-brand-50 border-brand-500 text-brand-600 dark:bg-brand-950');
+                showToast("Live Editing Enabled! Click any text to customize.");
+            } else {
+                editText.textContent = "Edit Mode: OFF";
+                editBtn.classList.remove('bg-brand-50 border-brand-500 text-brand-600 dark:bg-brand-950');
+                showToast("Edit mode disabled. Changes preserved.");
+            }
+        });
+
+        // Modal Handlers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Tab Switcher for Project 1 Financial Ledger
+        function switchTab(tab) {
+            const incomeView = document.getElementById('income-view');
+            const balanceView = document.getElementById('balance-view');
+            const tabIncome = document.getElementById('tab-income');
+            const tabBalance = document.getElementById('tab-balance');
+
+            if (tab === 'income') {
+                incomeView.classList.remove('hidden');
+                balanceView.classList.add('hidden');
+                tabIncome.className = "px-3 py-1 rounded bg-brand-600 text-white font-medium";
+                tabBalance.className = "px-3 py-1 rounded bg-slate-800 text-slate-400 hover:text-white font-medium";
+            } else {
+                incomeView.classList.add('hidden');
+                balanceView.classList.remove('hidden');
+                tabBalance.className = "px-3 py-1 rounded bg-brand-600 text-white font-medium";
+                tabIncome.className = "px-3 py-1 rounded bg-slate-800 text-slate-400 hover:text-white font-medium";
+            }
+        }
+
+        // Interactive Scenario Forecasting Switcher
+        function setScenario(type) {
+            const btnBest = document.getElementById('scen-best');
+            const btnBase = document.getElementById('scen-base');
+            const btnWorst = document.getElementById('scen-worst');
+            
+            const outflow = document.getElementById('scen-outflow');
+            const cover = document.getElementById('scen-cover');
+            const buffer = document.getElementById('scen-buffer');
+            const bar = document.getElementById('scen-bar');
+
+            // Reset buttons styling
+            [btnBest, btnBase, btnWorst].forEach(b => {
+                b.className = "p-2 rounded border border-slate-700 text-xs font-semibold text-center hover:bg-slate-800 transition-colors";
+            });
+
+            if (type === 'best') {
+                btnBest.className = "p-2 rounded border border-emerald-500 bg-emerald-950/40 text-xs font-semibold text-center text-white transition-colors";
+                outflow.textContent = "$24,225";
+                cover.textContent = "$30,000";
+                buffer.textContent = "+$5,775 (+23.8%)";
+                buffer.className = "text-emerald-400 font-semibold";
+                bar.style.width = "55%";
+                bar.className = "bg-emerald-500 h-full transition-all duration-500";
+            } else if (type === 'base') {
+                btnBase.className = "p-2 rounded border border-indigo-500 bg-indigo-950/40 text-xs font-semibold text-center text-white transition-colors";
+                outflow.textContent = "$28,500";
+                cover.textContent = "$30,000";
+                buffer.textContent = "+$1,500 (+5.2%)";
+                buffer.className = "text-emerald-400 font-semibold";
+                bar.style.width = "75%";
+                bar.className = "bg-indigo-500 h-full transition-all duration-500";
+            } else if (type === 'worst') {
+                btnWorst.className = "p-2 rounded border border-rose-500 bg-rose-950/40 text-xs font-semibold text-center text-white transition-colors";
+                outflow.textContent = "$35,625";
+                cover.textContent = "$30,000";
+                buffer.textContent = "-$5,625 Deficit (-18.7%)";
+                buffer.className = "text-rose-400 font-semibold";
+                bar.style.width = "98%";
+                bar.className = "bg-rose-500 h-full transition-all duration-500";
+            }
+        }
+    </script>
+</body>
+</html>
